@@ -1,12 +1,14 @@
 import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import CabinListFallback from "../_components/CabinListFallback";
+import FilterCabin from "../_components/FilterCabin";
 
 export const metadata = {
   title: "cabin",
 };
 
-export default async function Page() {
+export default async function Page({ searchParams }) {
+  const filter = searchParams?.capacity ?? "all";
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -20,9 +22,11 @@ export default async function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-
-      <Suspense fallback={<CabinListFallback />}>
-        <CabinList />
+      <div className="flex justify-end mb-8">
+        <FilterCabin />
+      </div>
+      <Suspense fallback={<CabinListFallback />} key={filter}>
+        <CabinList filter={filter} />
       </Suspense>
     </div>
   );

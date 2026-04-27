@@ -1,8 +1,7 @@
-import CabinListFallback from "../_components/CabinListFallback";
-// import Spinner from "../_components/Spinner";
+import Spinner from "../_components/Spinner";
 
 function loading() {
-  return <CabinListFallback />;
+  return <Spinner />;
 }
 
 export default loading;
