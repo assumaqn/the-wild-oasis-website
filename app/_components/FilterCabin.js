@@ -13,6 +13,7 @@ function FilterCabin() {
   const searchParams = useSearchParams();
   const pathName = usePathname();
   const router = useRouter();
+  const activeCabin = searchParams.get("capacity") ?? "all";
   function handleFilter(filter) {
     const params = new URLSearchParams(searchParams);
     params.set("capacity", filter);
@@ -23,7 +24,7 @@ function FilterCabin() {
     <div className="flex border border-primary-800">
       {Buttons.map((button) => (
         <button
-          className="px-5 py-2 hover:bg-primary-700"
+          className={`px-5 py-2 hover:bg-primary-700 ${activeCabin === button.filter ? "bg-primary-800" : " "}`}
           key={button.name}
           onClick={() => handleFilter(button.filter)}
         >
