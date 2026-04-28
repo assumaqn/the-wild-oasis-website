@@ -1,3 +1,5 @@
+import DateSelector from "@/app/_components/DateSelector";
+import ReservationForm from "@/app/_components/ReservationForm";
 import TextExpander from "@/app/_components/TextExpander";
 import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
@@ -23,7 +25,7 @@ export default async function Page({ params }) {
     cabin;
 
   return (
-    <div className="max-w-6xl mx-auto mt-8">
+    <div className="max-w-7xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
         <div className="relative scale-[1.15] -translate-x-3">
           <Image
@@ -69,9 +71,13 @@ export default async function Page({ params }) {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
+        <h2 className="text-5xl font-semibold text-center text-accent-400 mb-10 ">
+          Reserve {name} today. Pay on arrival.
         </h2>
+        <div className="grid grid-cols-[1.5fr_1fr] border border-primary-800 min-h-[400px]">
+          <DateSelector />
+          <ReservationForm />
+        </div>
       </div>
     </div>
   );
