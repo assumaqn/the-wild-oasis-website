@@ -46,7 +46,7 @@ function ReservationForm({ cabin }) {
           <textarea
             name="observations"
             id="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm  resize-none"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full h-[115px] shadow-sm rounded-sm  resize-none"
             placeholder="Any pets, allergies, special requirements, etc.?"
           />
         </div>
